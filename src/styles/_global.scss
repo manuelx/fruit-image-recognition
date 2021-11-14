@@ -1,0 +1,69 @@
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.headline-6{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.15px;
+  color: #000000;
+}
+
+
+$max-indent-level: 100;
+$steps: 5, 4;
+@each $step in $steps {
+  @for $i from 0 through math.div($max-indent-level, $step) {
+    $unit:px;
+    $value: $i*$step;
+
+    .p-t-#{$value} {
+      padding-top: ($value)+$unit
+    }
+    .p-r-#{$value} {
+      padding-right: ($value)+$unit
+    }
+    .p-l-#{$value} {
+      padding-left: ($value)+$unit
+    }
+    .p-b-#{$value} {
+      padding-bottom: ($value)+$unit
+    }
+    .p-#{$value} {
+      padding: ($value)+$unit;
+    }
+
+    .m-t-#{$value} {
+      margin-top: ($value)+$unit
+    }
+    .m-r-#{$value} {
+      margin-right: ($value)+$unit
+    }
+    .m-l-#{$value} {
+      margin-left: ($value)+$unit
+    }
+    .m-b-#{$value} {
+      margin-bottom: ($value)+$unit
+    }
+    .m-#{$value} {
+      margin: ($value)+$unit;
+    }
+
+    .z-i-#{$i} {
+      z-index: $i
+    }
+  }
+}
